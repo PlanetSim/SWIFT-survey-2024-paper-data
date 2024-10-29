@@ -1,0 +1,2 @@
+#Mtot|MmantMisc|McoreMisc|MmantMisc/Mmant|McoreMisc/Mcore
+1.057730670e+00|2.919042252e-01|1.851380497e-01|3.947478686e-01|5.817183666e-01

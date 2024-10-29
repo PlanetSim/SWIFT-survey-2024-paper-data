@@ -1,0 +1,5 @@
+### basename|numsnap|label|write
+/group/stsgrp2/adriana/swift-survey-2023/mass1to2/halfearth/halfearth0.5x0.25th30/halfearth0.5x0.25v1th30/output/halfearth0.5x0.25v1th30|289|v/v_esc=1, theta=30|1
+/group/stsgrp2/adriana/swift-survey-2023/mass1to2/halfearth/halfearth0.5x0.25th30/halfearth0.5x0.25v1.15th30/output/halfearth0.5x0.25v1.15th30|289|v/v_esc=1.15, theta=30|1
+/group/stsgrp2/adriana/swift-survey-2023/mass1to2/halfearth/halfearth0.5x0.25th30/halfearth0.5x0.25v1.5th30/output/halfearth0.5x0.25v1.5th30|289|v/v_esc=1.5, theta=30|1
+/group/stsgrp2/adriana/swift-survey-2023/mass1to2/halfearth/halfearth0.5x0.25th30/halfearth0.5x0.25v2.0th30/output/halfearth0.5x0.25v2.0th30|289|v/v_esc=2.0, theta=30|1

@@ -1,0 +1,50 @@
+Main:
+  flag_version: 2
+  flag_subversion: 0
+  flag_run_mode: [0]
+Initialization:
+  flag_start: 0
+  start_file: null
+  flag_format_start_file: 1
+  aspect_init: 0.95
+  material_amax_init: [5758804.391426287, 2974756.4866955164]
+Output:
+  run_name_base: halfearth0.5x0.25v1.15th30
+  flag_naming: 1
+  flag_output_format: 0
+  output_dir: Output
+  flag_iter_print: 0
+  thermo_var_output: [T, S, E]
+Iteration:
+  nint_max: 20
+  toll: 0.0001
+  xi_nint_max: 200
+  xi_toll: 1.0e-06
+  dxi: 0.001
+  flag_Mconc: 2
+  flag_Lconc: 1
+  omega_param: [1.0, 0.0, 1.5]
+Planet:
+  Nlayers: 150
+  Nmaterial: 2
+  material_lay: [100, 50]
+  material_flag_EOS: [2, 2]
+  EOS_files_std: [/home/apostema/hercules/HERCULES_development/Source_code/Pyrolite_NEW-GADGET-STD-NOTENSION.TXT,
+    /home/apostema/hercules/HERCULES_development/Source_code/Fe85Si15_NEW-GADGET-STD-NOTENSION.TXT]
+  flag_thermo_profile: [1, 1]
+  thermo_profile_files: [halfearth0.5x0.25v1.15th30_HERCULES_Rubie_mant_profiles.csv,
+    halfearth0.5x0.25v1.15th30_HERCULES_Rubie_core_profiles.csv]
+  Mass: [2.8621969929275345e+24, 1.1439474215054396e+24]
+  ref_rho: 1000.0
+  kmax: 6
+  Nmu: 400
+  omega_rot: 0.0
+  Ltot: 4.1156776627590013e+34
+  pmin: 1000000.0
+Planet_array_calc:
+  Xfinal: 1.0e+35
+  Xstep: 1.0e+33
+  Ndiv_Xstep: 1
+  flag_array_toll: 1
+  toll_array: 0.0001
+  xi_toll_array: [1.0e-06]

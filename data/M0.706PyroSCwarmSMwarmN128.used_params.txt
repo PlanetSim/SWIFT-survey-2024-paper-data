@@ -1,0 +1,2 @@
+#filename coremat mantlemat NSPH inputMass[M_earth] mass[M_earth] SPHmass[M_earth] corefrac SPHcorefrac radius[R_earth] Rcore[R_earth] Score[kJ/kg/K] Smantle[kJ/kg/K] Pcenter[GPa] PCMB[GPa] Pmin[Gpa] TCMB[K] Tsurf[K] mtolerance resolution 
+M0.706PyroSCwarmSMwarmN128.hdf5 alloy pyrolite 138890 0.70572970 0.70624429 0.70522757 0.30000000 0.30003044 0.93239289 0.48588479 1.82407930 2.82010204 244.37684582 94.60486064 0.00100000 3834.58141264 2161.69751032 0.00100000 1.88929747e+05

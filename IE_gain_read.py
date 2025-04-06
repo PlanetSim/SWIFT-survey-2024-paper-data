@@ -2695,23 +2695,25 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     fig, ax = plt.subplots(1, 1, figsize=(4,4))
     ax.scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,tmp_T[index][dataindexsort][indcoreEqPlanet],s=2,color=corecolor)
     ax.scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,tmp_T[index][dataindexsort][indmantEqPlanet],s=2,color=mantlecolor)
-    ax.plot(radiusmeancorelist[:-1]/R_earth,T25corelist[:-1],color='tab:cyan')
-    ax.plot(radiusmeancorelist[:-1]/R_earth,T50corelist[:-1],color='tab:blue')
-    ax.plot(radiusmeancorelist[:-1]/R_earth,T75corelist[:-1],color='tab:purple')
-    ax.plot(radiusmeancorelist[:-1]/R_earth,T25meancorelist[:-1],color='c')
-    ax.plot(radiusmeancorelist[:-1]/R_earth,Tmeancorelist[:-1],color='b')
-    ax.plot(radiusmeancorelist[:-1]/R_earth,T75meancorelist[:-1],color='m')
-    ax.plot(radiusmeanmantlist/R_earth,T25mantlist,color='tab:olive')
-    ax.plot(radiusmeanmantlist/R_earth,T50mantlist,color='tab:green')
-    ax.plot(radiusmeanmantlist/R_earth,T75mantlist,color='tab:brown')
-    ax.plot(radiusmeanmantlist/R_earth,T25meanmantlist,color='y')
-    ax.plot(radiusmeanmantlist/R_earth,Tmeanmantlist,color='g')
-    ax.plot(radiusmeanmantlist/R_earth,T75meanmantlist,color='brown')
-    ax.plot(radiusmeanlist/R_earth,solvusfn(np.abs(P25fitlist)),lw=2,color='red',label='W&M Fe-MgO Solvus')
+    ax.fill_between(radiusmeancorelist[:-1]/R_earth,T25corelist[:-1],T75corelist[:-1],color='white',alpha=0.7)
+    ax.plot(radiusmeancorelist[:-1]/R_earth,T25corelist[:-1],color='black',lw=1)#'tab:cyan'
+    ax.plot(radiusmeancorelist[:-1]/R_earth,T50corelist[:-1],color='black',ls='--',lw=1)#'tab:blue'
+    ax.plot(radiusmeancorelist[:-1]/R_earth,T75corelist[:-1],color='black',lw=1)#'tab:purple'
+    #ax.plot(radiusmeancorelist[:-1]/R_earth,T25meancorelist[:-1],color='c')
+    #ax.plot(radiusmeancorelist[:-1]/R_earth,Tmeancorelist[:-1],color='b')
+    #ax.plot(radiusmeancorelist[:-1]/R_earth,T75meancorelist[:-1],color='m')
+    ax.fill_between(radiusmeanmantlist[:-1]/R_earth,T25mantlist[:-1],T75mantlist[:-1],color='white',alpha=0.7)
+    ax.plot(radiusmeanmantlist/R_earth,T25mantlist,color='black',lw=1.)#'tab:olive'
+    ax.plot(radiusmeanmantlist/R_earth,T50mantlist,color='black',ls='--',lw=1.)#'tab:green'
+    ax.plot(radiusmeanmantlist/R_earth,T75mantlist,color='black',lw=1.)#'tab:brown'
+    #ax.plot(radiusmeanmantlist/R_earth,T25meanmantlist,color='y')
+    #ax.plot(radiusmeanmantlist/R_earth,Tmeanmantlist,color='g')
+    #ax.plot(radiusmeanmantlist/R_earth,T75meanmantlist,color='brown')
+    ax.plot(radiusmeanlist/R_earth,solvusfn(np.abs(P25fitlist)),lw=2,color='blue',label='W&M Fe-MgO Solvus')
     #ax[1,2].plot(radiusmeanlist/R_earth,vT_rubie(vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth)),color='black')
-    ax.legend(fontsize=14)
-    ax.set_xlabel(r"R $[R_\oplus]$",size=14)
-    ax.set_ylabel('Temperature T [K]',size=14)
+    #ax.legend(fontsize=14)
+    ax.set_xlabel(r"R $[R_\oplus]$")
+    ax.set_ylabel('Temperature T [K]')
     ax.tick_params(axis='both', which='both', labelsize=12)
     plt.tight_layout()
     imname=basename+'Fig_12.pdf'
@@ -2727,10 +2729,10 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     ax[0,0].plot(radiusmeanlist/R_earth,Pmeanlist/1.e9,label='Mean SPH value')
     ax[0,0].plot(radiusmeanlist/R_earth,P75list/1.e9,label='75th %ile SPH value')
     #ax[0,0].plot(radiusmeanlist/R_earth,P75meanlist/1.e9)
-    ax[0,0].plot(radiusmeanlist/R_earth,vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',label='Liquidus model',lw=3)
+    ax[0,0].plot(radiusmeanlist/R_earth,vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',label='Static model',lw=3)
     if os.path.isfile(basename+'final'):
-        ax[0,0].plot(HERC_r/R_earth,HERC_P/1.e9,'--',color='black',label='Spun HERCULES model',lw=3)
-    ax[0,0].scatter(cmb_rubie/R_earth,P_rubie(cmb_rubie,rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',s=60,label='Liquidus model CMB')
+        ax[0,0].plot(HERC_r/R_earth,HERC_P/1.e9,'--',color='black',label='Rotating model',lw=3)
+    ax[0,0].scatter(cmb_rubie/R_earth,P_rubie(cmb_rubie,rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',s=60,label='Static model CMB')
     if os.path.isfile(basename+'final'):
         ax[0,0].scatter(HERCc_layer.a/R_earth,HERC_PCMB/1.e9,color='black',s=45)
     #ax[0,0].plot(radiusmeanmantlist[:argmantfitmaxP25]/R_earth,P25mantfitfn(radiusmeanmantlist[:argmantfitmaxP25])/1.e9,lw=2)
@@ -2820,10 +2822,10 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     fig, ax = plt.subplots(2, 1, figsize=(6,8))
     ax[0].scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,P[index][dataindexsort][indcoreEqPlanet]/1.e9,s=2,color=corecolor,label='Core particles')
     ax[0].scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,P[index][dataindexsort][indmantEqPlanet]/1.e9,s=2,color=mantlecolor,label='Mantle particles')
-    ax[0].plot(radiusmeanlist/R_earth,vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',label='Liquidus model',lw=3)
+    ax[0].plot(radiusmeanlist/R_earth,vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',label='Static model',lw=3)
     if os.path.isfile(basename+'final'):
-        ax[0].plot(HERC_r/R_earth,HERC_P/1.e9,'--',color='black',label='Spun HERCULES model',lw=3)
-    ax[0].scatter(cmb_rubie/R_earth,P_rubie(cmb_rubie,rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',s=45,label='Liquidus model CMB')
+        ax[0].plot(HERC_r/R_earth,HERC_P/1.e9,'--',color='black',label='Rotating model',lw=3)
+    ax[0].scatter(cmb_rubie/R_earth,P_rubie(cmb_rubie,rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',s=45,label='Model CMB')
     if os.path.isfile(basename+'final'):
         ax[0].scatter(HERCc_layer.a/R_earth,HERC_PCMB/1.e9,color='black',s=45)
     ax[0].set_xlabel(r"R $[R_\oplus]$",size=14)
@@ -2930,7 +2932,7 @@ if __name__=='__main__':
             
         print('Bound mass CoM/vCoM: ',bcm,bvcm)
         
-        
+        plot_IE_gain(data0, data, bcm, bvcm, pos, vel, index=indbnd, rplanet=rplanet, basename=basename)
         if (os.path.isfile(basename+'_profiles.txt')==False):
             plot_IE_gain(data0, data, bcm, bvcm, pos, vel, index=indbnd, rplanet=rplanet, basename=basename)
         if (os.path.getmtime(snapshot)>os.path.getmtime(basename+'_profiles.txt')):

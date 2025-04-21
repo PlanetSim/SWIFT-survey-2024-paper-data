@@ -1,0 +1,26 @@
+{
+    "creators": [
+        {
+            "orcid": "0009-0009-5324-4184",
+            "affiliation": "University of California, Davis",
+            "name": "Postema, Adriana N."
+        },
+        {
+            "orcid": "0000-0001-5365-9616",
+            "affiliation": "University of Bristol",
+            "name": "Lock, Simon J."
+        },
+        {
+            "orcid": "0000-0001-9606-1593",
+            "affiliation": "Arizona State University",
+            "name": "Stewart, Sarah T."
+        }
+    ],
+
+    "license": "GPL-3.0",
+
+    "title": "Supplementary Materials for `Thermal and Rotational Effects of Giant Impacts During Terrestrial Planet Accretion`, published in The Planetary Science Journal, 2025",
+
+    "keywords": ["Planet formation", "Planetary thermal histories", "Planetary cores", "Planetary interior", "Planetary science", "Collisional processes", "Impact phenomena", "Mantle", "Planetary structure"]
+
+}

@@ -2693,8 +2693,8 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     plt.close()
     
     fig, ax = plt.subplots(1, 1, figsize=(4,4))
-    ax.scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,tmp_T[index][dataindexsort][indcoreEqPlanet],s=2,color=corecolor)
-    ax.scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,tmp_T[index][dataindexsort][indmantEqPlanet],s=2,color=mantlecolor)
+    ax.scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,tmp_T[index][dataindexsort][indcoreEqPlanet],s=2,color=corecolor,rasterized=True)
+    ax.scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,tmp_T[index][dataindexsort][indmantEqPlanet],s=2,color=mantlecolor,rasterized=True)
     ax.fill_between(radiusmeancorelist[:-1]/R_earth,T25corelist[:-1],T75corelist[:-1],color='white',alpha=0.7)
     ax.plot(radiusmeancorelist[:-1]/R_earth,T25corelist[:-1],color='black',lw=1)#'tab:cyan'
     ax.plot(radiusmeancorelist[:-1]/R_earth,T50corelist[:-1],color='black',ls='--',lw=1)#'tab:blue'
@@ -2712,12 +2712,12 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     ax.plot(radiusmeanlist/R_earth,solvusfn(np.abs(P25fitlist)),lw=2,color='blue',label='W&M Fe-MgO Solvus')
     #ax[1,2].plot(radiusmeanlist/R_earth,vT_rubie(vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth)),color='black')
     #ax.legend(fontsize=14)
-    ax.set_xlabel(r"R $[R_\oplus]$")
-    ax.set_ylabel('Temperature T [K]')
+    ax.set_xlabel(r"R $[R_\oplus]$",size=15)
+    ax.set_ylabel('Temperature T [K]',size=16)
     ax.tick_params(axis='both', which='both', labelsize=12)
     plt.tight_layout()
     imname=basename+'Fig_12.pdf'
-    plt.savefig(imname, dpi=100)
+    plt.savefig(imname, dpi=1000)
     plt.show()
     
     fig, ax = plt.subplots(2, 2, figsize=(18,12))
@@ -2820,8 +2820,8 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     plt.close()
     
     fig, ax = plt.subplots(2, 1, figsize=(6,8))
-    ax[0].scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,P[index][dataindexsort][indcoreEqPlanet]/1.e9,s=2,color=corecolor,label='Core particles')
-    ax[0].scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,P[index][dataindexsort][indmantEqPlanet]/1.e9,s=2,color=mantlecolor,label='Mantle particles')
+    ax[0].scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,P[index][dataindexsort][indcoreEqPlanet]/1.e9,s=2,color=corecolor,label='Core particles',rasterized=True)
+    ax[0].scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,P[index][dataindexsort][indmantEqPlanet]/1.e9,s=2,color=mantlecolor,label='Mantle particles',rasterized=True)
     ax[0].plot(radiusmeanlist/R_earth,vP_rubie(radiusmeanlist, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',label='Static model',lw=3)
     if os.path.isfile(basename+'final'):
         ax[0].plot(HERC_r/R_earth,HERC_P/1.e9,'--',color='black',label='Rotating model',lw=3)
@@ -2833,8 +2833,8 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     ax[0].tick_params(axis='both', which='both', labelsize=12)
     ax[0].legend(fontsize=14)
     
-    ax[1].scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,P[index][dataindexsort][indcoreEqPlanet]/1.e9-vP_rubie(rrr[index][dataindexsort][indcoreEqPlanet], rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,s=2,color=corecolor,label='Core particles')
-    ax[1].scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,P[index][dataindexsort][indmantEqPlanet]/1.e9-vP_rubie(rrr[index][dataindexsort][indmantEqPlanet], rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,s=2,color=mantlecolor,label='Mantle particles')
+    ax[1].scatter(rrr[index][dataindexsort][indcoreEqPlanet]/R_earth,P[index][dataindexsort][indcoreEqPlanet]/1.e9-vP_rubie(rrr[index][dataindexsort][indcoreEqPlanet], rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,s=2,color=corecolor,label='Core particles',rasterized=True)
+    ax[1].scatter(rrr[index][dataindexsort][indmantEqPlanet]/R_earth,P[index][dataindexsort][indmantEqPlanet]/1.e9-vP_rubie(rrr[index][dataindexsort][indmantEqPlanet], rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,s=2,color=mantlecolor,label='Mantle particles',rasterized=True)
     if os.path.isfile(basename+'final'):
         ax[1].plot(HERC_r/R_earth,HERC_P/1.e9-vP_rubie(HERC_r, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,'--',color='black',label='Spun HERCULES model',lw=3)
         ax[1].scatter(HERCc_layer.a/R_earth,HERC_PCMB/1.e9-vP_rubie(HERCc_layer.a, rCMB, rplanet, mtot/M_earth,mcore,mmant)/1.e9,color='black',s=45)
@@ -2846,7 +2846,7 @@ def plot_IE_gain(data0,data,cm,vcm,pos,vel,index=None,U0=None,rplanet=None,basen
     
     plt.tight_layout()
     imname=basename+'Fig_11.pdf'
-    plt.savefig(imname, dpi=100)
+    plt.savefig(imname, dpi=1000)
     plt.show()
 
 # ----------------------------- # 
